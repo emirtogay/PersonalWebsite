@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmirTogay</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #dc3a3a;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <img src="images/pjatk.png" alt="Logo" class="logo">
+    <ul id="menu-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About me</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="CV - Emir Togay 11 11 2024 2.pdf" target="_blank" rel="noopener noreferrer">
+        <button class="nav-btn">
+            Find my CV
+            <img src="images/arrow-white.png" alt="">
+        </button>
+    </a>
+    
+    <img src="images/menu.png" alt="" class="menu-icon" onclick="toggleMenu()">
+</nav>
+
+<div id="main-screen" class="header">
+    <div class="header-content">
+        <h1><span>Emir</span><br><span>Togay</span></h1>
+        <div class="btn-container">
+            <a href="tel:+1234567890">
+            <button class="btn-dark">Reach me <img src="images/phone.png" alt=""></button>
+            </a>
+            <button class="btn-light">Know more <img src="images/arrow-black.png" alt=""></button>
+        </div>
+        <p>Information Management student and an Intern</p>
+    </div>
+    <img src="images/emir.png" alt="" class="emir-img">
+</div>
+
+<script>
+    let navbar = document.querySelector('nav');
+    let menuLinks = document.getElementById("menu-links");
+    function toggleMenu(){
+        menuLinks.classList.toggle('show-menu');
+    }
+
+    window.onscroll = function () {
+        if (window.scrollY > 0) {
+            navbar.style.background = '#eefff9';
+        } else {
+            navbar.style.background = 'transparent';
+        }
+    };
+</script>
+</body>
+</html>
