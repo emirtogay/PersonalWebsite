@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css" media="only screen and (max-width: 768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -47,6 +48,50 @@
 
         nav ul li a:hover {
             color: #dc3a3a;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+        }
+
+        #menu-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Mobile menu styles */
+        @media only screen and (max-width: 768px) {
+            .menu-icon {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+            }
+
+            #menu-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background: white;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                padding: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                z-index: 100;
+            }
+
+            #menu-links.show-menu {
+                display: flex;
+            }
+
+            #menu-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
         }
 
         .header {
@@ -118,7 +163,10 @@
 <body>
 <nav>
     <img src="images/pjatk.png" alt="Logo" class="logo">
-    <ul>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <img src="images/menu.png" alt="Menu Icon">
+    </div>
+    <ul id="menu-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html" class="active">About me</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -151,6 +199,11 @@
 </footer>
 
 <script>
+    function toggleMenu() {
+        const menuLinks = document.getElementById("menu-links");
+        menuLinks.classList.toggle("show-menu");
+    }
+
     let navbar = document.querySelector('nav');
     window.onscroll = function () {
         if (window.scrollY > 0) {
